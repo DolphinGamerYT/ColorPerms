@@ -9,7 +9,7 @@ import java.util.logging.Level;
 
 public class Vault {
 
-    private ColorPerms colorPerms;
+    private final ColorPerms colorPerms;
 
     private Permission perms;
     private Boolean hooked;
@@ -17,9 +17,9 @@ public class Vault {
     public Vault(ColorPerms colorPerms) {
         this.colorPerms = colorPerms;
 
-        hooked = !Bukkit.getServer().getPluginManager().getPlugin("Vault").isEnabled();
+        this.hooked = Bukkit.getServer().getPluginManager().getPlugin("Vault").isEnabled();
 
-        if (!hooked) {
+        if (!this.hooked) {
             Bukkit.getServer().getLogger().log(Level.SEVERE, "Could not hook to Vault.");
             return;
         }
@@ -31,12 +31,12 @@ public class Vault {
 
     private boolean setupPermissions() {
         RegisteredServiceProvider<Permission> rsp = Bukkit.getServer().getServicesManager().getRegistration(Permission.class);
-        perms = rsp.getProvider();
-        return perms != null;
+        this.perms = rsp.getProvider();
+        return this.perms != null;
     }
 
     public Boolean isHooked() {
-        return hooked;
+        return this.hooked;
     }
 
     public Permission getPerms() {

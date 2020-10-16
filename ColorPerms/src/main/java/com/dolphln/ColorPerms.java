@@ -23,9 +23,9 @@ public final class ColorPerms extends JavaPlugin {
 
         colors = Colors.values();
 
-        Bukkit.getPluginManager().registerEvents(new ChatListener(this, colors), this);
+        Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
 
-        Bukkit.getLogger().log(Level.FINE, "ColorPerms has started correctly!");
+        Bukkit.getLogger().log(Level.INFO, "ColorPerms has started correctly!");
     }
 
     @Override

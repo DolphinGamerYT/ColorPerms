@@ -10,11 +10,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class ChatListener implements Listener {
 
     private ColorPerms plugin;
-    private Colors[] colors;
 
-    public ChatListener(ColorPerms plugin, Colors[] colors) {
+    public ChatListener(ColorPerms plugin) {
         this.plugin = plugin;
-        this.colors = colors;
     }
 
     @EventHandler
@@ -23,13 +21,13 @@ public class ChatListener implements Listener {
         String baseMessage = e.getMessage();
 
         if (plugin.getVault().isHooked()) {
-            for (Colors color : colors) {
+            for (Colors color : plugin.getColors()) {
                 if (plugin.getVault().getPerms().has(p, color.getPermission()) || p.hasPermission(color.getPermission()) || p.isOp()) {
                     baseMessage = baseMessage.replaceAll(color.getCode(), color.getColor().toString());
                 }
             }
         } else {
-            for (Colors color : colors) {
+            for (Colors color : plugin.getColors()) {
                 if (p.hasPermission(color.getPermission()) || p.isOp()) {
                     baseMessage = baseMessage.replaceAll(color.getCode(), color.getColor().toString());
                 }

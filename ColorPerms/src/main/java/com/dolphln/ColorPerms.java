@@ -16,7 +16,7 @@ public final class ColorPerms extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getLogger().log(Level.INFO, "ColorPerms is starting...");
+        Bukkit.getLogger().log(Level.INFO, "[ColorPerms] ColorPerms is starting...");
 
         this.instance = this;
         vault = new Vault(this);
@@ -25,14 +25,14 @@ public final class ColorPerms extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new ChatListener(this), this);
 
-        Bukkit.getLogger().log(Level.INFO, "ColorPerms has started correctly!");
+        Bukkit.getLogger().log(Level.INFO, "[ColorPerms] ColorPerms has started correctly!");
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getLogger().log(Level.INFO, "ColorPerms is closing...");
+        Bukkit.getLogger().log(Level.INFO, "[ColorPerms] ColorPerms is closing...");
 
-        Bukkit.getLogger().log(Level.FINEST, "ColorPerms has closed correctly.");
+        Bukkit.getLogger().log(Level.INFO, "[ColorPerms] ColorPerms has closed correctly.");
     }
 
     public ColorPerms getInstance() {

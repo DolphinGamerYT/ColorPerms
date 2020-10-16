@@ -1,0 +1,8 @@
+name: ColorPerms
+version: ${project.version}
+main: com.dolphln.ColorPerms
+prefix: ColorPerms
+depend: [ Vault ]
+authors: [ Dolphln ]
+description: Color Chat Based On Permissions
+website: dolphln.com
